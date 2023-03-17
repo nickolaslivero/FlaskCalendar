@@ -7,7 +7,7 @@ def get_timestamp():
 EVENT = {
     "5000": {
         'event_id': '5000',
-        'event_title': 'Apresentação de MPS',
+        'event_title': 'MPS',
         'event_description': 'descricao',
         'event_date': '9/10/2023 18:00:00',
         'user_id': '1000',

@@ -7,19 +7,19 @@ def get_timestamp():
 
 USER = {
     '1000': {
-        'user_name': 'Tiago Farias Barbosa',
+        'user_name': 'aaa',
         'user_email': 'email@gmail.com',
         'user_id': '1000',
         'timestamp': get_timestamp()
     },
     '2000': {
-        'user_name': 'Tiago Farias Barbosa',
+        'user_name': 'bbb',
         'user_email': 'email@gmail.com',
         'user_id': '2000',
         'timestamp': get_timestamp()
     },
     '3000': {
-        'user_name': 'Tiago Farias Barbosa',
+        'user_name': 'ccc',
         'user_email': 'email@gmail.com',
         'user_id': '3000',
         'timestamp': get_timestamp()
