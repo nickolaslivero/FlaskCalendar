@@ -1,8 +1,10 @@
 from datetime import datetime
 from flask import abort, make_response
 
+
 def get_timestamp():
     return datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
 
 EVENT = {
     "5000": {
@@ -32,7 +34,7 @@ def create(event):
             'event_id': event_id,
             'event_title': event_title,
             'event_description': event_description,
-            'event_date':event_date,
+            'event_date': event_date,
             'user_id': user_id,
             'timestamp': get_timestamp()
         }

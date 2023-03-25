@@ -8,8 +8,6 @@ flask_app = app.app
 flask_app.secret_key = 'mps'
 
 
-
-
 class Task:
     def __init__(self, task_name, task_date, task_description):
         self.task_name = task_name
@@ -19,6 +17,7 @@ class Task:
 
 user_dict = {}
 task_list = []
+
 
 @app.route("/")
 def index():

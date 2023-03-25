@@ -3,8 +3,10 @@ from event import EVENT
 from flask import abort, make_response
 from flask_mysqldb import MySQL
 
+
 def get_timestamp():
     return datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
 
 USER = {
     '1000': {
