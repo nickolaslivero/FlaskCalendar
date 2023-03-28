@@ -51,6 +51,8 @@
             <td>Nome</td>
             <td>Data</td>
             <td>Descrição</td>
+            <td></td>
+            <td></td>
         </tr>
         </thead>
         <tbody>
@@ -59,6 +61,8 @@
             <td>{{task.task_name}}</td>
             <td>{{task.task_date}}</td>
             <td>{{task.task_description}}</td>
+            <td><a href="{{ url_for('editevent', id=task.id )}}">Editar</a></td>
+            <td><a>Excluir</a></td>
         </tr>
         {%endfor%}
         </tbody>

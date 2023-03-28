@@ -1,11 +1,22 @@
 from flask import render_template, redirect, request, url_for, session, flash
 import connexion
+from flask_sqlalchemy import SQLAlchemy
 
 app = connexion.App(__name__, specification_dir='./')
 app.add_api('swagger.yml')
 
 flask_app = app.app
 flask_app.secret_key = 'mps'
+
+db = SQLAlchemy(flask_app)
+flask_app.config['SQLALCHEMY_DATABASE_URI'] = \
+    '{SGBD}://{user}:{password}@{server}/{database}'.format(
+        SGBD='mysql+mysqlconnector',
+        user='root',
+        password='admin',
+        server='localhost',
+        database='jogoteca'
+    )
 
 
 class Task:
@@ -15,8 +26,10 @@ class Task:
         self.task_description = task_description
 
 
+task_teste = Task("teste nome", "teste data", "teste descrição")
+
 user_dict = {}
-task_list = []
+task_list = [task_teste]
 
 
 @app.route("/")
@@ -78,6 +91,18 @@ def createevent():
     task = Task(task_name, task_date, task_description)
     task_list.append(task)
     return redirect('/calendar')
+
+
+@app.route("/editevent/", methods=["GET", "POST"])
+def editevent():
+    if 'user' not in session or session['user'] is None:
+        return redirect('/login')
+    return render_template('editevent.html')
+
+
+@app.route("/updateevent", methods=["GET", "POST"])
+def updateevent():
+    pass
 
 
 if __name__ == '__main__':
