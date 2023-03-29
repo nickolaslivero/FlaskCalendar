@@ -7,21 +7,22 @@
     <title>Editar Eventos</title>
 </head>
 <body>
-<h1>Registro de Editar Evento</h1>
+<h1>Editar Evento</h1>
 
-    <form action="{{ url_for('editevent') }}" method="post">
-        <label for="nome">Nome do Evento:</label>
-        <input type="text" id="nome" name="nome">
-        <br><br>
-        <label for="data">Data do Evento:</label>
-        <input type="date" id="data" name="data">
-        <br><br>
-        <label for="desc">Descrição:</label>
-        <input type="text" id="desc" name="desc">
-        <br><br>
-        <input class="btn btn-primary" type="submit" value="Registrar Evento">
-        <a class="btn btn-danger" href="{{ url_for('calendar') }}">Cancelar</a>
-    </form>
+<form action="{{ url_for('updateevent', id=task.task_id) }}" method="post">
+    <input type="hidden" name="id" value="{{task.task_id}}">
+    <label for="nome">Nome do Evento:</label>
+    <input type="text" id="nome" name="nome" value="{{task.task_name}}">
+    <br><br>
+    <label for="data">Data do Evento:</label>
+    <input type="date" id="data" name="data" value="{{task.task_date}}">
+    <br><br>
+    <label for="desc">Descrição:</label>
+    <input type="text" id="desc" name="desc" value="{{task.task_description}}">
+    <br><br>
+    <input class=" btn btn-primary" type="submit" href="{{ url_for('calendar') }}" value="Registrar Evento">
+    <a class="btn btn-danger" href="{{ url_for('updateevent') }}">Cancelar</a>
+</form>
 
 </body>
 </html>

@@ -1,7 +1,6 @@
 from datetime import datetime
 from event import EVENT
 from flask import abort, make_response
-from flask_mysqldb import MySQL
 
 
 def get_timestamp():
