@@ -96,3 +96,14 @@ def updateevent():
     db.session.commit()
 
     return redirect(url_for('calendar'))
+
+@app.route("/deleteevent/<int:id>", methods=["GET", "POST"])
+def deleteevent(id):
+    if 'user' not in session or session['user'] is None:
+        return redirect('/login')
+
+    Tasks.query.filter_by(task_id=id).delete()
+    db.session.commit()
+    flash('Jogo deletado com sucesso!')
+
+    return redirect(url_for('calendar'))

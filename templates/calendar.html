@@ -48,11 +48,10 @@
     <table>
         <thead>
         <tr>
-            <td>Nome</td>
-            <td>Data</td>
-            <td>Descrição</td>
-            <td></td>
-            <td></td>
+            <td><h4>Nome</h4></td>
+            <td><h4>Data</h4></td>
+            <td><h4>Descrição</h4></td>
+            <td><h4>Outras Ações</h4></td>
         </tr>
         </thead>
         <tbody>
@@ -61,8 +60,8 @@
             <td>{{task.task_name}}</td>
             <td>{{task.task_date}}</td>
             <td>{{task.task_description}}</td>
-            <td><a href="{{ url_for('editevent', id=task.task_id) }}">Editar</a></td>
-            <td><a href="{{ url_for('editevent', id=task.task_id) }}"> Excluir</a></td>
+            <td><a href="{{ url_for('editevent', id=task.task_id) }}" class="btn btn-primary">Editar</a>
+            <a href="{{ url_for('deleteevent', id=task.task_id) }}" class="btn btn-danger"> Excluir</a></td>
         </tr>
         {%endfor%}
         </tbody>
