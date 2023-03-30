@@ -84,6 +84,7 @@ def deleteuser(id):
         return redirect(url_for('login'))
     user_to_delete = Users.query.filter_by(user_id=id).first()
     if user_to_delete:
+        Tasks.query.filter_by(user_id=id).delete()
         db.session.delete(user_to_delete)
         db.session.commit()
         flash('Usuário deletado com sucesso!')
