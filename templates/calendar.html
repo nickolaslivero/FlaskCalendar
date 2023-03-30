@@ -9,6 +9,7 @@
 </head>
 <body>
 <h1>Registro de Eventos</h1>
+<h2>Olá {{user.user_name}}, seja bem vindo!</h2>
 {% with messages = get_flashed_messages() %}
 {% if messages %}
 <ul id="messages" class="list-unstyled">
@@ -41,6 +42,8 @@
             <button class="btn btn-dark" id="next" onclick="next()">Proximo</button>
             <a class="btn btn-primary" href="{{ url_for('newevent') }}">Nova Tarefa</a>
             <a class="btn btn-danger" href="{{ url_for('logout') }}">Deslogar</a>
+            <a class="btn btn-success" href="{{ url_for('edituser', id=user.user_id)}}">Atualizar Conta</a>
+            <a class="btn btn-secondary" href="{{ url_for('deleteuser', id=user.user_id)}}">Deletar Conta</a>
         </div>
         <a id="month" onchange="jump()"></a>
         <a id="year" onchange="jump()"></a>
@@ -61,7 +64,7 @@
             <td>{{task.task_date}}</td>
             <td>{{task.task_description}}</td>
             <td><a href="{{ url_for('editevent', id=task.task_id) }}" class="btn btn-primary">Editar</a>
-            <a href="{{ url_for('deleteevent', id=task.task_id) }}" class="btn btn-danger"> Excluir</a></td>
+                <a href="{{ url_for('deleteevent', id=task.task_id) }}" class="btn btn-danger"> Excluir</a></td>
         </tr>
         {%endfor%}
         </tbody>

@@ -17,7 +17,5 @@ class Users(db.Model):
     user_name = db.Column(db.String(255), nullable=False)
     user_password = db.Column(db.String(255), nullable=False)
 
-    # tasks = db.relationship('Task', backref='user', lazy=True)
-
     def __repr__(self):
         return '<Name %r>' % self.user_name
