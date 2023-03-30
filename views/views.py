@@ -1,6 +1,6 @@
 from flask import render_template, redirect, request, url_for, session, flash
 from app import app, db
-from models import Tasks, Users
+from models.models import Tasks, Users
 
 usuario = None
 
@@ -115,8 +115,9 @@ def createevent():
     task_name = request.form['nome']
     task_date = request.form['data']
     task_description = request.form['desc']
+    user = usuario
 
-    event = Tasks.query.filter_by(task_name=request.form['nome']).first()
+    event = Tasks.query.filter_by(task_name=request.form['nome']).filter_by(user_id=user.user_id).first()
     if event:
         flash('Tarefa já existente')
         return redirect(url_for('calendar'))
