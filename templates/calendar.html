@@ -38,13 +38,16 @@
             </tbody>
         </table>
         <div>
-            <button class="btn btn-dark" id="previous" onclick="previous()">Anterior</button>
-            <button class="btn btn-dark" id="next" onclick="next()">Proximo</button>
-            <a class="btn btn-primary" href="{{ url_for('newevent') }}">Nova Tarefa</a>
-            <a class="btn btn-danger" href="{{ url_for('logout') }}">Deslogar</a>
-            <a class="btn btn-success" href="{{ url_for('edituser', id=user.user_id)}}">Atualizar Conta</a>
-            <a class="btn btn-secondary" href="{{ url_for('deleteuser', id=user.user_id)}}">Deletar Conta</a>
+            <button class="btn btn-primary" id="previous" onclick="previous()">Anterior</button>
+            <button class="btn btn-danger" id="next" onclick="next()">Proximo</button>
+            <div style="float: right;">
+                <a class="btn btn-dark" href="{{ url_for('logout') }}">Deslogar</a>
+                <a class="btn btn-primary" href="{{ url_for('edituser', id=user.user_id)}}">Atualizar Conta</a>
+                <a class="btn btn-danger" href="{{ url_for('deleteuser', id=user.user_id)}}">Deletar Conta</a>
+            </div>
+            <a class="btn btn-dark" href="{{ url_for('newevent') }}">Nova Tarefa</a>
         </div>
+
         <a id="month" onchange="jump()"></a>
         <a id="year" onchange="jump()"></a>
     </div>
