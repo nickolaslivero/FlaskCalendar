@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>Registro de Eventos</h1>
-<h2>Olá {{user.user_name}}, seja bem vindo!</h2>
+<h2 style="margin-left: 30px">Olá {{user.user_name}}, seja bem vindo!</h2>
 {% with messages = get_flashed_messages() %}
 {% if messages %}
 <ul id="messages" class="list-unstyled">
@@ -21,7 +21,7 @@
 {% endwith %}
 <div class="container">
     <div class="card">
-        <h3 class="card-header" id="monthAndYear"></h3>
+        <h3 id="monthAndYear"></h3>
         <table class="table" id="calendar">
             <thead>
             <tr>
@@ -47,31 +47,31 @@
             </div>
             <a class="btn btn-dark" href="{{ url_for('newevent') }}">Nova Tarefa</a>
         </div>
-
         <a id="month" onchange="jump()"></a>
         <a id="year" onchange="jump()"></a>
+        <br>
+        <table>
+            <thead>
+            <tr>
+                <td><h4>Nome</h4></td>
+                <td><h4>Data</h4></td>
+                <td><h4>Descrição</h4></td>
+                <td><h4>Outras Ações</h4></td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{task.task_name}}</td>
+                <td>{{task.task_date}}</td>
+                <td>{{task.task_description}}</td>
+                <td><a href="{{ url_for('editevent', id=task.task_id) }}" class="btn btn-primary">Editar</a>
+                    <a href="{{ url_for('deleteevent', id=task.task_id) }}" class="btn btn-danger"> Excluir</a></td>
+            </tr>
+            {%endfor%}
+            </tbody>
+        </table>
     </div>
-    <table>
-        <thead>
-        <tr>
-            <td><h4>Nome</h4></td>
-            <td><h4>Data</h4></td>
-            <td><h4>Descrição</h4></td>
-            <td><h4>Outras Ações</h4></td>
-        </tr>
-        </thead>
-        <tbody>
-        {% for task in tasks %}
-        <tr>
-            <td>{{task.task_name}}</td>
-            <td>{{task.task_date}}</td>
-            <td>{{task.task_description}}</td>
-            <td><a href="{{ url_for('editevent', id=task.task_id) }}" class="btn btn-primary">Editar</a>
-                <a href="{{ url_for('deleteevent', id=task.task_id) }}" class="btn btn-danger"> Excluir</a></td>
-        </tr>
-        {%endfor%}
-        </tbody>
-    </table>
 </div>
 </body>
 <script src="{{ url_for('static', filename='script.js') }}"></script>
