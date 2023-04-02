@@ -1,49 +1,45 @@
-from datetime import datetime
-from event import EVENT
+import mysql.connector
 from flask import abort, make_response
 
-
-def get_timestamp():
-    return datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-
-
-USER = {
-    '1000': {
-        'user_name': 'aaa',
-        'user_email': 'email@gmail.com',
-        'user_id': '1000',
-        'timestamp': get_timestamp()
-    },
-    '2000': {
-        'user_name': 'bbb',
-        'user_email': 'email@gmail.com',
-        'user_id': '2000',
-        'timestamp': get_timestamp()
-    },
-    '3000': {
-        'user_name': 'ccc',
-        'user_email': 'email@gmail.com',
-        'user_id': '3000',
-        'timestamp': get_timestamp()
-    }
+config = {
+    'user': 'mps',
+    'password': '1qaz2wsx3edc',
+    'host': '192.168.0.157',
+    'database': 'agenda0'
 }
+
+mydb = mysql.connector.connect(**config)
+cursor = mydb.cursor()
+
 
 
 def read_all():
-    return list(USER.values())
+    query = 'SELECT * FROM users'
+    cursor.execute(query)
+    result = cursor.fetchall()
+    users = []
+    for row in result:
+        user = {
+            'user_id': row[0],
+            'user_name': row[1],
+            'user_password': row[2],
+        }
+        users.append(user)
+    return users
+
 
 
 def create(user):
     user_id = user.get('user_id')
     user_name = user.get('user_name', '')
+    user_password = user.get('user_password', '')
 
-    if user_id and user_id not in USER:
-        USER[user_id] = {
-            'user_id': user_id,
-            'user_name': user_name,
-            'timestamp': get_timestamp()
-        }
-        return USER[user_id], 201
+    if user_id:
+        query = 'INSERT INTO users (user_id, user_name, user_password) VALUES (%s, %s, %s)'
+        values = (user_id, user_name, user_password)
+        cursor.execute(query, values)
+        mydb.commit()
+        return user, 201
     else:
         abort(
             406,
@@ -51,44 +47,47 @@ def create(user):
         )
 
 
+
 def read_one(user_id):
-    if user_id in USER:
-        return USER[user_id]
+    query = 'SELECT * FROM users WHERE user_id = %s'
+    values = (user_id,)
+    cursor.execute(query, values)
+    result = cursor.fetchone()
+    if result:
+        user = {
+            'user_id': result[0],
+            'user_name': result[1],
+            'user_password': result[2],
+        }
+        return user
     else:
         abort(404, f'User not found')
 
 
 def update(user_id, user):
-    if user_id in USER:
-        USER[user_id]["user_name"] = user.get("user_name", USER[user_id]["user_name"])
-        USER[user_id]["timestamp"] = get_timestamp()
-        return USER[user_id]
-    else:
-        abort(
-            404,
-            f"Person with ID {user_id} not found"
-        )
+    if user_id:
+        query = 'UPDATE users SET user_name = %s'
+        values = (user.get('user_name', ''), user_id)
+        cursor.execute(query, values)
+        mydb.commit()
+        if cursor.rowcount > 0:
+            user['user_id'] = user_id
+            return user
+        else:
+            abort(
+                404,
+                f"Person with ID {user_id} not found")
 
 
 def delete(user_id):
-    if user_id in USER:
-        del USER[user_id]
-        return make_response(
-            f"{user_id} successfully deleted", 200
-        )
-    else:
-        abort(
-            404,
-            f"Person with ID {user_id} not found"
-        )
+    sql = "DELETE FROM users WHERE user_id = %s"
+    val = (user_id,)
 
+    cursor.execute(sql, val)
 
-def read_all_events(user_id):
-    if user_id in USER:
-        USER_EVENTS = {}
-        for event_id, event_data in EVENT.items():
-            if event_data["user_id"] == user_id:
-                USER_EVENTS[event_id] = event_data
-        return list(USER_EVENTS.values())
+    if cursor.rowcount == 1:
+        mydb.commit()
+        return make_response(f"{user_id} successfully deleted", 200)
     else:
-        abort(404, "User not found")
+        abort(404, f"Person with ID {user_id} not found")
+

@@ -114,17 +114,6 @@ paths:
       responses:
         "204":
           description: "Successfully deleted user"
-  /user/{user_id}/events:
-    get:
-      operationId: "user.read_all_events"
-      tags:
-        - "User"
-      summary: "Read the list of events of a user"
-      parameters:
-        - $ref: "#/components/parameters/user_id"
-      responses:
-        "200":
-          description: "Successfully read the list of the user"
   /event:
     get:
       operationId: "event.read_all"
