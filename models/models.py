@@ -9,7 +9,7 @@ class Tasks(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable=False)
 
     def __repr__(self):
-        return '<Name %r>' % self.task_name
+        return self.task_name
 
 
 class Users(db.Model):
@@ -18,4 +18,4 @@ class Users(db.Model):
     user_password = db.Column(db.String(255), nullable=False)
 
     def __repr__(self):
-        return '<Name %r>' % self.user_name
+        return self.user_name
