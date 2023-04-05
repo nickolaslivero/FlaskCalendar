@@ -4,8 +4,6 @@ O Projeto consiste na implementação de um sistema de registro de eventos utili
 Link da documentação:
 - GitHub pages link: https://nickolaslivero.github.io/FlaskCalendar/
 
-Tecnologias utilizadas:
-
 Deploy & Versionamento:
    - Git e GitHub
 
