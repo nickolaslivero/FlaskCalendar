@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Dicionário de Dados</title>
+</head>
+<body>
+    <h1>Dicionário de dados</h1>
+    <a class="btn btn-outline-dark" href="documentation.html">Voltar</a>
+    <div>
+        <h2>Table: users</h2>
+        <table class="table">
+
+            <thead class="thead-black">
+                <tr>
+                    <th scope="col">Váriavel</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Tipo de dado</th>
+                    <th scope="col">Tamanho</th>
+                    <th scope="col">Restrições</th>
+                    <th scope="col">Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Id do usuário</th>
+                    <td>usuario_id</td>
+                    <td>INT</td>
+                    <td>-</td>
+                    <td>PK NOT NULL</td>
+                    <td>Número de identificação do usuário</td>
+                </tr>
+                <tr>
+                    <th scope="row">Nome do usuário</th>
+                    <td>usuario_nome</td>
+                    <td>VARCHAR</td>
+                    <td>250</td>
+                    <td>NOT NULL</td>
+                    <td>Nome do usuário</td>
+                </tr>
+                <tr>
+                    <th scope="row">Senha do usuário</th>
+                    <td>usuario_senha</td>
+                    <td>VARCHAR</td>
+                    <td>250</td>
+                    <td>NOT NULL</td>
+                    <td>Senha do usuário</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <h2>Table: tasks</h2>
+        <table class="table">
+
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Váriavel</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Tipo de dado</th>
+                    <th scope="col">Tamanho</th>
+                    <th scope="col">Restrições</th>
+                    <th scope="col">Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Id do evento</th>
+                    <td>evento_id</td>
+                    <td>INT</td>
+                    <td>-</td>
+                    <td>PK NOT NULL</td>
+                    <td>Número de identificação do evento</td>
+                </tr>
+                <tr>
+                    <th scope="row">Nome do evento</th>
+                    <td>evento_nome</td>
+                    <td>VARCHAR</td>
+                    <td>250</td>
+                    <td>NOT NULL</td>
+                    <td>Nome do evento</td>
+                </tr>
+                <tr>
+                    <th scope="row">Data do evento</th>
+                    <td>evento_data_hora</td>
+                    <td>DATE</td>
+                    <td>-</td>
+                    <td>NOT NULL</td>
+                    <td>Data e hora marcada para o evento</td>
+                </tr>
+                <tr>
+                    <th scope="row">Descrição do evento</th>
+                    <td>evento_descricao</td>
+                    <td>VARCHAR</td>
+                    <td>250</td>
+                    <td>-</td>
+                    <td>Descrição detalhando o evento</td>
+                </tr>
+                <tr>
+                    <th scope="row">Id do usuário</th>
+                    <td>usuario_id</td>
+                    <td>INT</td>
+                    <td>-</td>
+                    <td>FK NOT NULL</td>
+                    <td>Número de identificação do usuário</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

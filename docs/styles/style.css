@@ -1,0 +1,26 @@
+.gradient{
+    color: black;
+    background: linear-gradient(50deg, rgb(233, 235, 249), rgb(87, 143, 247));
+    animation: movinggradient 10s ease infinite;
+    background-size: 200%;
+    height: 1000px;
+    background-repeat: no-repeat;
+}   
+
+.inline-block{
+    display: inline-block;
+}
+
+@keyframes movinggradient {
+    0%{
+        background-position: 0% 50%;
+    }
+
+    50%{
+        background-position: 100% 50%;
+    }
+
+    0%{
+        background-position: 0% 50%;
+    }
+}
