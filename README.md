@@ -4,18 +4,18 @@ O Projeto consiste na implementação de um sistema de registro de eventos utili
 Link da documentação:
 - GitHub pages link: https://nickolaslivero.github.io/FlaskCalendar/
 
-Tecnologias utilizadas:<br>
-  Deploy & Versionamento:<br>
+Tecnologias utilizadas:
+  * Deploy & Versionamento:
    - Git e GitHub<br>
-  Design Pattern:<br>
+  * Design Pattern:
    - Variação do movelo MVC.<br>
-  Front-End:<br>
+  * Front-End:<br>
    - HTML + CSS<br>
    - Javascript puro<br>
    - Jinja2 (Python)<br>
-  Back-End:<br>
-   -Flask (Python)<br>
-   -ORM: SQL-Alchemy<br>
-   -Swagger<br>
-  DataBase:<br>
-   -MySQL (hospedado localmente)<br>
+  * Back-End:
+   - Flask (Python)<br>
+   - ORM: SQL-Alchemy<br>
+   - Swagger<br>
+  * DataBase:
+   - MySQL (hospedado localmente)<br>
