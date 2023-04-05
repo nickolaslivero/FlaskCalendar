@@ -1,5 +1,5 @@
-Um sistema de Registro de Eventos.
-O Projeto consiste na implementação de um sistema de registro de eventos utilizando as bases de toda o percurso da engenharia de software.
+Um sistema de Registro de Eventos.<br>
+O Projeto consiste na implementação de um sistema de registro de eventos utilizando as bases de todo o percurso da engenharia de software, da documentação ao deploy.
  
 Link da documentação:
 - GitHub pages link: https://nickolaslivero.github.io/FlaskCalendar/
