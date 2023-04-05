@@ -1,8 +1,26 @@
-Sistema de Agenda
+Um sistema de Registro de Eventos.
+O Projeto consiste na implementação de um sistema de registro de eventos utilizando as bases de toda o percurso da engenharia de software.
  
- Link da documentação:
-- GitHub pages link: https://nickolaslivero.github.io/FlaskCalendarDocumentation/
-- Repositório da documentação: https://github.com/nickolaslivero/FlaskCalendarDocumentation
+Link da documentação:
+- GitHub pages link: https://nickolaslivero.github.io/FlaskCalendar/
 
-O Projeto consiste na implementação de um sistema de agenda utilizando as bases da modelagem e projeto de sistemas.
-Neste caso, há uma variação do padrão de projeto MVC, e está sendo utilizado as tecnologias html+css+js+jinja2 para o front-end, python+flask+swagger+ORM-SQL-Alchemy para o back-end e MySQL local para o banco de dados.
+Tecnologias utilizadas:
+
+Deploy & Versionamento:
+   - Git e GitHub
+
+Design Pattern:
+   - Variação do movelo MVC.
+
+Front-End:
+   - HTML + CSS
+   - Javascript puro
+   - Jinja2 (Python)
+   
+Back-End:
+   - Flask (Python)
+   - ORM: SQL-Alchemy
+   - Swagger
+   
+DataBase:
+   - MySQL (hospedado localmente)
