@@ -1,4 +1,4 @@
-Um sistema de Registro de Eventos.<br>
+Um sistema de Registro de Eventos.<br><br>
 O Projeto consiste na implementação de um sistema de registro de eventos utilizando as bases de todo o percurso da engenharia de software, da documentação ao deploy.
  
 Link da documentação:
