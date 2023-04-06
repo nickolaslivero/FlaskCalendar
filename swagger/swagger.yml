@@ -54,7 +54,7 @@ components:
 paths:
   /user:
     get:
-      operationId: "user.read_all"
+      operationId: "swagger.user.read_all"
       tags:
         - "User"
       summary: "Read the list of users"
@@ -62,7 +62,7 @@ paths:
         "200":
           description: "Successfully read user list"
     post:
-      operationId: "user.create"
+      operationId: "swagger.user.create"
       tags:
         - "User"
       summary: "Create a new user"
@@ -79,7 +79,7 @@ paths:
           description: "Successfully created user"
   /user/{user_id}:
     get:
-      operationId: "user.read_one"
+      operationId: "swagger.user.read_one"
       tags:
         - "User"
       summary: "Read one user"
@@ -91,7 +91,7 @@ paths:
     put:
       tags:
         - "User"
-      operationId: "user.update"
+      operationId: "swagger.user.update"
       summary: "Update a user"
       parameters:
         - $ref: "#/components/parameters/user_id"
@@ -107,7 +107,7 @@ paths:
     delete:
       tags:
         - "User"
-      operationId: "user.delete"
+      operationId: "swagger.user.delete"
       summary: "Delete a user"
       parameters:
         - $ref: "#/components/parameters/user_id"
@@ -116,7 +116,7 @@ paths:
           description: "Successfully deleted user"
   /event:
     get:
-      operationId: "event.read_all"
+      operationId: "swagger.event.read_all"
       tags:
         - "Event"
       summary: "Read the list of events"
@@ -124,7 +124,7 @@ paths:
         "200":
           description: "Successfully read events list"
     post:
-      operationId: "event.create"
+      operationId: "swagger.event.create"
       tags:
         - "Event"
       summary: "Create a new event"
@@ -141,7 +141,7 @@ paths:
           description: "Successfully created event"
   /event/{event_id}:
     get:
-      operationId: "event.read_one"
+      operationId: "swagger.event.read_one"
       tags:
         - "Event"
       summary: "Read one event"
@@ -153,7 +153,7 @@ paths:
     put:
       tags:
         - "Event"
-      operationId: "event.update"
+      operationId: "swagger.event.update"
       summary: "Update a event"
       parameters:
         - $ref: "#/components/parameters/event_id"
@@ -169,7 +169,7 @@ paths:
     delete:
       tags:
         - "Event"
-      operationId: "event.delete"
+      operationId: "swagger.event.delete"
       summary: "Delete a event"
       parameters:
         - $ref: "#/components/parameters/event_id"
