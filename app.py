@@ -2,7 +2,6 @@ import connexion
 from flask_sqlalchemy import SQLAlchemy
 
 app = connexion.App(__name__, specification_dir='./')
-app.add_api('swagger/swagger.yml')
 
 flask_app = app.app
 flask_app.config.from_pyfile('config.py')
